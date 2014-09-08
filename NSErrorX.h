@@ -29,4 +29,9 @@
  */
 + (instancetype)friendlyErrorWithDomain:(NSString *)domain andCode:(NSInteger)code;
 
+/**
+ *      Shows a friendly human-readable localized description of the error
+ */
+- (void)showAlertView;
+
 @end
