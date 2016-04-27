@@ -16,6 +16,17 @@
 
 /**
  Hide or show the tab bar. If animated, it will transition vertically using UINavigationControllerHideShowBarDuration.
+ This method changing frame only for tab bar.
+ 
+ @param hidden Specify `YES` to hide the tab bar or `NO` to show it.
+ @param animated Specify `YES` if you want to animate the change in visibility or `NO` if you want the tab bar to appear immediately.
+ @param resize Specify 'YES' if you want to change frame of tab bar controller's view and subviews or 'NO' if you don't whant change frame of this.
+ */
+- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated withResizeView:(BOOL)resize;
+
+/**
+ Hide or show the tab bar. If animated, it will transition vertically using UINavigationControllerHideShowBarDuration.
+ This method changing frame only for tab bar.
 
  @param hidden Specify `YES` to hide the tab bar or `NO` to show it.
  @param animated Specify `YES` if you want to animate the change in visibility or `NO` if you want the tab bar to appear immediately.

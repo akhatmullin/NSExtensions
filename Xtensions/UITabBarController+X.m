@@ -4,7 +4,7 @@
 
 @implementation UITabBarController (X)
 
-- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated
+- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated withResizeView:(BOOL)resize
 {
     if (self.isTabBarHidden == hidden)
         return;
@@ -22,12 +22,18 @@
             if ([view isKindOfClass:UITabBar.class])
                 [view setFrame:CGRectMake(view.frame.origin.x, height, view.frame.size.width, view.frame.size.height)];
             else
-                [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, height)];
+                if (resize)
+                    [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, height)];
     }
     completion:^(BOOL finished)
     {
         self.tabBar.hidden = hidden;
     }];
+}
+
+- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated
+{
+    [self setTabBarHidden:hidden animated:animated withResizeView:NO];
 }
 
 - (void)setTabBarHidden:(BOOL)tabBarHidden
